@@ -5,9 +5,9 @@ from app.services.usuario_services.usuarios_services import (
     get_user_id, get_all_users, check_password,
     edit_user, delete_user
 )
-from app.server import app  # Certifique-se de que você tem uma factory para criar a aplicação
-from app.server import db  # Extensão do banco de dados
-from app.models.usuario import Usuario  # Importando o modelo de Usuario
+from app.server import app  
+from app.server import db  
+from app.models.usuario import Usuario  
 
 # Fixture para limpar o banco de dados antes de cada teste
 @pytest.fixture(autouse=True)

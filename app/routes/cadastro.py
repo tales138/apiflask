@@ -1,6 +1,7 @@
 from flask import  jsonify,request,make_response
 from app.services.usuario_services.usuarios_services import user_create
 from flask import Blueprint
+from sqlalchemy.exc import IntegrityError
 route_bp_register_user = Blueprint('route_bp_register_user', __name__)
 
 @route_bp_register_user.route("/cadastrar",methods=["POST"])
@@ -69,7 +70,6 @@ def cadastrar():
         if(user_create(name=name,email=email,password=pwd)):
               return make_response(jsonify({"Success": "Usuario cadastrado com suscesso"}), 201)
         return  make_response(jsonify({"Error": "Erro ao cadastrar usuário"}), 401)
-    
     except:
           return  make_response(jsonify({"Error": "Campos obrigatórios ausentes ou inválidos"}), 400)
     
