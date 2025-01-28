@@ -50,8 +50,10 @@ Esta API foi desenvolvida para gerenciar usuários, incluindo autenticação e p
   *No caso de o banco de dados estar vazio, permite que qualquer usuário logado promova outro a admin para testar as permissões.*
 
 ---
+Para que o usuário possa ter uma visualização gráfica do banco de dados foi usado o container docker adminer como dependência da aplicação, podendo ser acessado em:
+```
+http://127.0.0.1:8080/
+```
 
-## Estrutura do Projeto
 
-A aplicação está organizada nos seguintes diretórios:
 
