@@ -77,12 +77,11 @@ Os testes não foram executados usando docker. Então, para executá-los, é nec
 
 ##Execução Sem Docker:
 
-Abra o arquivo db_connection.py no diretório app/extensions e descomente a seguinte linha de código
-```
-#app.config['SQLALCHEMY_DATABASE_URI']="postgresql://postgres:12345@localhost:5432/postgres"
-```
-Você pode editar os parâmetros de conexão com o postgre de acordo com as configurações do seu banco local.
 
+Você pode editar os parâmetros de conexão com o PostgreSQL de acordo com as configurações do seu banco local. No arquiv app/extensions/db_connections
+```
+app.config['SQLALCHEMY_DATABASE_URI']="postgresql://postgres:12345@localhost:5432/postgres"
+```
 Tenha o postgresql instalado na sua máquina e use o Dbeaver para ter uma visualização gráfica do banco de dados.
 
 comente a seguinte linha de código:
