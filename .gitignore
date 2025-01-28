@@ -1,0 +1,12 @@
+# Ignorar diretórios __pycache__
+__pycache__/
+
+# Ignorar arquivos Python compilados
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de cache do Python
+*.pdb
+*.egg-info/
+*.eggs/
