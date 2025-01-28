@@ -100,7 +100,7 @@ pip install requirements.txt
 ```
 para iniciar a aplicação:
 ```
-	flask --app run run 
+flask --app run run 
 ```
 
 Execução com Docker: 
