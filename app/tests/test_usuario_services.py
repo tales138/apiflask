@@ -9,7 +9,7 @@ from app.server import app
 from app.server import db  
 from app.models.usuario import Usuario  
 
-# Fixture para limpar o banco de dados antes de cada teste
+#Fixture para limpar o banco de dados antes de cada teste
 @pytest.fixture(autouse=True)
 def clear_database():
     """Limpa o banco de dados antes de cada teste."""
