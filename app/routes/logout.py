@@ -21,7 +21,7 @@ def logout():
         description: Token de autenticação JWT a ser invalidado
         schema:
           type: string
-          example: Bearer <your_token_here>
+          example: Bearer your_token_here
       - name: uid
         in: header
         type: integer
@@ -59,7 +59,8 @@ def logout():
     try:
         request_data = request.headers.get("Authorization")
         tok = request_data.split()[1]
-        blocked_token = TokenBlocklist(jwt=tok)
+        blocked_token = TokenBlocklist()
+        blocked_token.jwt_t(jwt=tok)
         blocked_token.block_token()
         return make_response(jsonify({"Success": "Usuario deslogado com sucesso"}), 201)
     except:

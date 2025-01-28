@@ -6,6 +6,7 @@ def promote_user_to_admin(uid):
     return True
 
 def is_admin(uid):
-    if Admin.query.filter_by(usuario_id=uid).first():
+    user = Admin.query.filter_by(usuario_id=uid).first()
+    if user:
         return True
     return False

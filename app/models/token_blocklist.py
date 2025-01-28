@@ -1,17 +1,16 @@
 from app.server import db
-
 class TokenBlocklist(db.Model):
     __tablename__ = 'token_blocklist'
 
-    token_id = db.Column(db.Integer, primary_key=True)  # ID único para cada registro
+    token_id = db.Column(db.Integer, autoincrement=True,primary_key=True)  # ID único para cada registro
     jwt = db.Column(db.String(116), nullable=False, unique=True)  # Identificador único do token (JTI)
-    created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())  # Data de revogação
-
-    def __init__(self, jwt):
-        self.jwt = jwt
+    created_at = db.Column(db.DateTime,default=db.func.now())  # Data de revogação
+    
+    def jwt_t(self,jwt):
+        self.jwt = jwt 
 
     def __repr__(self):
-        return f"<TokenBlocklist id={self.token_id} jti={self.jwt}>"
+        return f"<TokenBlocklist id={self.token_id} jti={self.jwt}> created_at={self.created_at}"
     
     def block_token(self):
         db.session.add(self)

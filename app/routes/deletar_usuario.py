@@ -11,7 +11,7 @@ route_bp_delete_user = Blueprint('route_bp_delete_user', __name__)
 @route_bp_delete_user.route("/usuario/<id>", methods=["DELETE"])
 @verify_token
 @admin_required(Admin)
-def deleta_usuario():
+def deleta_usuario(id):
     """
     Excluir um usuário
     ---
@@ -32,7 +32,7 @@ def deleta_usuario():
         description: "Token de autenticação JWT"
         schema:
           type: string
-          example: Bearer <your_token_here>'"
+          example: Bearer your_token_here
       - name: uid
         in: header
         type: integer
@@ -40,7 +40,7 @@ def deleta_usuario():
         description: "ID do usuário logado"
         schema:
             type: integer
-            example: 123 '
+            example: 123 
     responses:
       200:
         description: Usuário deletado com sucesso
@@ -68,7 +68,7 @@ def deleta_usuario():
               example: Usuário não encontrado
     """
     try:  
-        id = request.view_args['id']
+        print(id)
         delete_user(id)
         return make_response(jsonify({"Success": "Usuario deletado com sucesso"}), 201)
     except:

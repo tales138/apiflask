@@ -7,7 +7,7 @@ from flask import Blueprint
 
 route_bp_edit_user = Blueprint('route_bp_edit_user', __name__)
 # Método para atualizar os dados de um usuário
-@route_bp_edit_user.route("/usuarios/<id>", methods=["PUT"])
+@route_bp_edit_user.route("/usuarios", methods=["PUT"])
 @verify_token
 def atualiza_usuario():
     #DESCRIÇÃO SWAGGER
@@ -17,13 +17,6 @@ def atualiza_usuario():
     tags:
       - Usuários
     parameters:
-      - name: id
-        in: path
-        required: true
-        description: ID do usuário a ser atualizado
-        schema:
-          type: integer
-          example: 1
       - name: body
         in: body
         required: true
@@ -44,7 +37,15 @@ def atualiza_usuario():
         description: "Token de autenticação JWT"
         schema:
           type: string
-          example: Bearer <your_token_here>'"
+          example: Bearer your_token_here
+      - name: uid
+        in: header
+        type: integer
+        required: true
+        description: "ID do usuário logado"
+        schema:
+            type: integer
+            example: 123 
     responses:
     responses:
       200:
@@ -74,10 +75,10 @@ def atualiza_usuario():
     """
     try:
         body = request.get_json()
-        id = request.view_args['id']
+        uid = request.headers.get("uid")
         if(body['name'] and body['email']):
-            edit_user(id,body['name'],body['email'])
+            edit_user(uid,body['name'],body['email'])
 
         return make_response(jsonify({"error": "Dados atualizados com sucesso"}), 201)
     except:
-         return make_response(jsonify({"error": "Erro ao atualizar dados do usuário"},401), 201)
+         return make_response(jsonify({"error": "Erro ao atualizar dados do usuário"}),401)

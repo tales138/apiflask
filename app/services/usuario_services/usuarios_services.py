@@ -21,7 +21,7 @@ def is_user_valid(email):
         return False
     return True
 def is_user_valid_id(uid):
-    user = Usuario.query.filter_by(email=uid).first()
+    user = Usuario.query.filter_by(id=uid).first()
     if not user:
         return False
     return True
@@ -50,5 +50,6 @@ def edit_user(uid, name, email):
 
 def delete_user(uid):
    user = Usuario.query.filter_by(id=uid).first()
+   print(user)
    user.delete_user()
    return True

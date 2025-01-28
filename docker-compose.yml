@@ -1,26 +1,13 @@
 
 services:
-  api_flask_usuarios:
-    container_name: api_flask_usuarios
-    image: apiflaskusuarios/flask_live_app:1.0.0
+  api_flask:
+    container_name: api_flask
     build: .
     ports:
-      - "4000:4000"
+      - "5000:5000"
     environment:
-      - DB_URL=postgresql://postgres:12345@flask_db:5432/flaskapi
-    depends_on:
-      - flask_db
-  flask_db:
-    container_name: flask_db
-    image: postgres:17
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=12345
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=flaskapi
+      - DB_URL=postgresql://postgres:12345@api_db:5432/postgres
+      - FLASK_DEBUG=1
     volumes:
-      - pgdata:/var/lib/postgresql/data
-
-volumes:
-  pgdata: {}
+      - .:/app
+    command: flask --app run run -h 0.0.0.0

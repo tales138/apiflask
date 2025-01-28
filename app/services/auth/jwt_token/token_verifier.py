@@ -10,7 +10,8 @@ def verify_token(function:callable) -> callable:
         uid = request.headers.get("uid")
         
         token = raw_token.split()[1]
-        blokec_token =  TokenBlocklist(token)
+        blokec_token =  TokenBlocklist()
+        blokec_token.jwt_t(jwt=token)
         if(not  raw_token or not uid):
              return make_response(jsonify({"error": "não autorizado"}), 401)
         
