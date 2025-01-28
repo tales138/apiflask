@@ -9,8 +9,8 @@ from app.services.admin_services.admin_services import *
 
 route_bp_promote_admin = Blueprint('route_bp_promote_admin', __name__)
 @route_bp_promote_admin.route("/promoteadmin", methods=["POST"])
-@verify_token
-@admin_required(Admin)
+@verify_token#decorator para verificar se o token de autenticação é válido
+@admin_required(Admin)#decorator para verificar se o usuário é administrador
 def promote_to_admin():
  
    #DESCRIÇÃO SWAGGER
@@ -97,7 +97,7 @@ def promote_to_admin():
 
 
 @route_bp_promote_admin.route("/promoteadmintest", methods=["POST"])
-@verify_token
+@verify_token#decorator para verififcar se o token de autenticação é válido
 def add_admin_test():
     #SWAGGER DESCRIPTION 
     """

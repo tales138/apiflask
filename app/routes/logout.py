@@ -6,7 +6,7 @@ from flask import Blueprint
 route_bp_logout = Blueprint('route', __name__)
 
 @route_bp_logout.route("/logout",methods=["POST"])
-@verify_token
+@verify_token#decorator para verificar se o token de autenticação é válido
 def logout():
     #DESCRIÇÃO SWAGGER
     """

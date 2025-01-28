@@ -2,6 +2,10 @@ from app.models.usuario import Usuario
 from app.utils.validators import is_valid_email,is_valid_name,is_password_strong
 from werkzeug.security import generate_password_hash, check_password_hash
 
+'''
+Serviços para executar lógicas mais complexas referentes a usuários
+'''
+
 def user_create(name,email,password):
     if(is_valid_name(name) and is_valid_email(email) and is_password_strong(password=password)):
         password = generate_password_hash(password)

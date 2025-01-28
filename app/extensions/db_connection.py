@@ -1,5 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from os import environ
+
+#função para iniciar a conexaão com o banco de dados.
 def start_postgres_connection(app):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     

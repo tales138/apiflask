@@ -4,7 +4,7 @@ from flask import Blueprint
 from app.services.auth.jwt_token.token_singleton import token_creator
 
 route_refresh_token = Blueprint('route_refresh_token', __name__)
-@verify_token
+@verify_token#decorator para verificar se o token de autenticação é válido
 @route_refresh_token.route("/refreshtoken",methods=["POST"])
 def resfresh_token_route():
     #DESCRIÇÃO SWAGGER

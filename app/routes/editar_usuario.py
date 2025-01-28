@@ -4,11 +4,12 @@ from app.services.auth.jwt_token.token_verifier import verify_token
 from app.services.usuario_services.usuarios_services import edit_user
 from flask import Blueprint
 
-
+#defininindo a blueprint da rota para editar um usuário
 route_bp_edit_user = Blueprint('route_bp_edit_user', __name__)
-# Método para atualizar os dados de um usuário
+
+# rota para atualizar os dados de um usuário
 @route_bp_edit_user.route("/usuarios", methods=["PUT"])
-@verify_token
+@verify_token#decorator para verificar se o token de autenticação é válido
 def atualiza_usuario():
     #DESCRIÇÃO SWAGGER
     """

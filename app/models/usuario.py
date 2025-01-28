@@ -2,6 +2,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.server import db
 
+#modelo para criar um usuários
 class Usuario(db.Model):
     __tablename__ = 'users'
 

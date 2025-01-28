@@ -9,9 +9,9 @@ from flask import  make_response,jsonify
 route_list_users = Blueprint('route_list_users', __name__)
 @route_list_users.route("/usuarios", methods=["GET"])
 
-
-@verify_token
-@admin_required(Admin)
+#rota para listar usuários. restrito a admins
+@verify_token#decorator para verificar se o token de autenticação é válido
+@admin_required(Admin)#decorator para verificar se o usuário é admin
 def listar_usuarios():
     #DESCRIÇÃO SWAGGER
     """

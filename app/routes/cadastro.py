@@ -2,8 +2,10 @@ from flask import  jsonify,request,make_response
 from app.services.usuario_services.usuarios_services import user_create
 from flask import Blueprint
 from sqlalchemy.exc import IntegrityError
+#defininindo a bluprint da rota
 route_bp_register_user = Blueprint('route_bp_register_user', __name__)
 
+#rota para cadastrar/criar um novo usuário
 @route_bp_register_user.route("/cadastrar",methods=["POST"])
 def cadastrar():
     #DESCRIÇÃO SWAGGER

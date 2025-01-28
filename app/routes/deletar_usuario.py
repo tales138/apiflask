@@ -6,11 +6,12 @@ from app.services.auth.jwt_token.token_verifier import verify_token
 from flask import Blueprint
 from app.services.usuario_services.usuarios_services import delete_user
 
+#blueprint da rota
 route_bp_delete_user = Blueprint('route_bp_delete_user', __name__)
-# Método para deletar um usuário
+# rota para deletar um usuário
 @route_bp_delete_user.route("/usuario/<id>", methods=["DELETE"])
-@verify_token
-@admin_required(Admin)
+@verify_token#decorator para verificar se o token de autenticação é válido
+@admin_required(Admin)#decorator para verificar se o usuário é admin
 def deleta_usuario(id):
     """
     Excluir um usuário

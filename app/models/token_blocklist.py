@@ -1,4 +1,6 @@
 from app.server import db
+
+#modelo para criar e salvar um token na lista de bloqueados(expirados), quando o usuário faz logout
 class TokenBlocklist(db.Model):
     __tablename__ = 'token_blocklist'
 

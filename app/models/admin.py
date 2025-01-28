@@ -1,4 +1,6 @@
 from app.server import db
+
+#modelo para criar um admin
 class Admin(db.Model):
     __tablename__ = 'admins'
 
