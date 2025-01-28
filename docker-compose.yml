@@ -6,8 +6,23 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - DB_URL=postgresql://postgres:12345@api_db:5432/postgres
+      - DB_URL=postgresql://postgres:12345@db:5432/db
       - FLASK_DEBUG=1
     volumes:
       - .:/app
-    command: flask --app run run -h 0.0.0.0
+    command: flask --app run run -h 0.0.0.
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  pgdata: {}
