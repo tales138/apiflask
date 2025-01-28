@@ -111,9 +111,9 @@ docker ps -a
 ```
 no diretório raiz do projeto execute o seguinte comando para gerar o container docker da aplicação juntamente com o banco de dados e visualizador gráfico adminer :
 ```
-	docker compose build 
+docker compose build 
 ```
 Para executar o container:
 ```
-	docker compose up api_flask
+docker compose up api_flask
 ```
