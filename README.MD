@@ -55,5 +55,14 @@ Para que o usuário possa ter uma visualização gráfica do banco de dados foi 
 http://127.0.0.1:8080/
 ```
 
+As rotas da aplicação seguiram o padrão REST.
 
+Para realizar a autenticação foi utilizado o mecanismo de token JWT.
+
+Para a documentação e teste da API, foi utilizado o Swagger de forma incorporada a api.
+
+Essa documentação pode ser acessada quando a aplicação for iniciada. em:
+```
+http://127.0.0.1:5000/apidocs 
+```
 
